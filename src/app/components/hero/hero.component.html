@@ -1,0 +1,51 @@
+<section id="home" class="min-h-screen flex items-center pt-24 pb-16 px-6">
+  <div class="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-16 items-center">
+
+    <!-- Text -->
+    <div class="animate-slide-left">
+      <span class="inline-block px-5 py-2 rounded-full border border-primary bg-primary/10 text-sm font-medium mb-8 text-primary animate-pulse-soft">
+        👋 Disponible pour de nouveaux projets
+      </span>
+      <h1 class="font-display text-5xl md:text-7xl font-bold leading-[1.05] mb-6 bg-gradient-to-br from-light via-accent to-primary bg-clip-text text-transparent">
+        Anne<br>Barbara<br>Tebu
+      </h1>
+      <p class="text-lg text-light/70 leading-relaxed mb-8 max-w-lg">
+        Développeuse Full-Stack passionnée avec 4 ans d'expérience, spécialisée en frontend moderne et tests automatisés.
+        Je transforme des idées en applications web performantes et élégantes.
+      </p>
+      <div class="flex flex-wrap gap-3 mb-10">
+        <span *ngFor="let tech of techStack"
+              class="px-4 py-1.5 rounded-full text-sm border border-white/10 bg-white/5 hover:border-primary hover:bg-primary/10 hover:text-primary transition-all duration-300 cursor-default text-light/80">
+          {{ tech }}
+        </span>
+      </div>
+      <div class="flex flex-wrap gap-4">
+        <button (click)="scrollToProjects()"
+                class="px-8 py-3.5 rounded-full font-semibold bg-gradient-to-r from-primary to-secondary text-white shadow-lg shadow-primary/30 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/40 transition-all duration-300">
+          Voir mes projets
+        </button>
+        <button (click)="scrollToContact()"
+                class="px-8 py-3.5 rounded-full font-semibold border-2 border-light/40 text-light hover:bg-light hover:text-dark transition-all duration-300 hover:-translate-y-1">
+          Me contacter
+        </button>
+      </div>
+    </div>
+
+    <!-- Card -->
+    <div class="animate-slide-right">
+      <div class="relative p-6 rounded-3xl border border-white/10 bg-gradient-to-br from-primary/10 to-secondary/10 backdrop-blur-sm">
+        <div class="w-full h-64 rounded-2xl bg-gradient-to-br from-primary/30 to-secondary/30 flex items-center justify-center text-8xl mb-6 shadow-2xl">
+          <img src="../../../assets/img/portfolio-removebg-preview.png" alt="" class="w-[300px]">
+        </div>
+        <div class="grid grid-cols-3 gap-3 mt-4">
+          <div *ngFor="let stat of stats"
+               class="text-center p-3 rounded-xl bg-white/5">
+            <span class="block font-display text-2xl font-bold bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">{{ stat.value }}</span>
+            <span class="text-xs text-light/60 mt-1 block">{{ stat.label }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

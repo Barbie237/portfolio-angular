@@ -1,0 +1,19 @@
+<section id="about" class="py-24 px-6 bg-black/20">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <p class="text-primary font-semibold tracking-widest text-sm uppercase mb-3">À PROPOS DE MOI</p>
+      <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">Pourquoi travailler avec moi ?</h2>
+      <p class="text-light/60 max-w-xl mx-auto">Une développeuse polyvalente combinant expertise technique et créativité pour créer des solutions digitales exceptionnelles.</p>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div *ngFor="let card of cards"
+           class="p-8 rounded-3xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] hover:border-primary hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-2 transition-all duration-400 group">
+        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
+          {{ card.icon }}
+        </div>
+        <h3 class="text-xl font-semibold mb-3 text-accent">{{ card.title }}</h3>
+        <p class="text-light/70 leading-relaxed text-sm">{{ card.text }}</p>
+      </div>
+    </div>
+  </div>
+</section>

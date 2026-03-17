@@ -1,0 +1,61 @@
+<section id="projects" class="py-24 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <p class="text-primary font-semibold tracking-widest text-sm uppercase mb-3">MES RÉALISATIONS</p>
+      <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">Projets Professionnels</h2>
+      <p class="text-light/60 max-w-xl mx-auto">Découvrez mes projets les plus significatifs, démontrant mes compétences en développement full-stack et QA.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+      <div *ngFor="let project of projects"
+           class="group bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 rounded-3xl overflow-hidden hover:-translate-y-2 hover:border-primary hover:shadow-2xl hover:shadow-black/50 transition-all duration-400"
+           [class.cursor-pointer]="project.screenshots.length > 0"
+           (click)="project.screenshots.length > 0 && openProject(project.id)">
+
+        <!-- Image area -->
+        <div class="h-52 relative overflow-hidden bg-gradient-to-br {{ project.gradient }}">
+          <!-- Image réelle si disponible -->
+          <img *ngIf="project.image"
+               [src]="project.image"
+               [alt]="project.title"
+               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <!-- Fallback emoji si pas d'image -->
+          <div *ngIf="!project.image"
+               class="w-full h-full flex items-center justify-center text-6xl">
+            <span class="drop-shadow-lg group-hover:scale-110 transition-transform duration-300">{{ project.emoji }}</span>
+          </div>
+          <div class="absolute inset-0 bg-gradient-to-t from-dark/60 to-transparent"></div>
+          <!-- Shimmer -->
+          <div class="absolute inset-0 translate-x-[-100%] bg-gradient-to-r from-transparent via-white/10 to-transparent group-hover:translate-x-[200%] transition-transform duration-700 ease-in-out"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="p-6">
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span *ngFor="let tag of project.tags.slice(0,3)"
+                  class="px-3 py-1 rounded-full text-xs border border-primary/50 bg-primary/10 text-primary font-medium">
+              {{ tag }}
+            </span>
+            <span *ngIf="project.tags.length > 3"
+                  class="px-3 py-1 rounded-full text-xs border border-white/20 text-light/50">
+              +{{ project.tags.length - 3 }}
+            </span>
+          </div>
+          <h3 class="font-display text-lg font-bold mb-2 text-accent group-hover:text-primary transition-colors duration-300 leading-tight">{{ project.title }}</h3>
+          <p class="text-light/60 text-sm leading-relaxed mb-4 line-clamp-3">{{ project.shortDescription }}</p>
+          <div class="flex items-center justify-between">
+            <span class="text-xs text-light/40">{{ project.company }} · {{ project.period }}</span>
+            <!-- Bouton Voir uniquement si screenshots disponibles -->
+            <span *ngIf="project.screenshots.length > 0"
+                  class="text-primary text-sm font-semibold flex items-center gap-1 group-hover:gap-2 transition-all duration-300">
+              Voir
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
